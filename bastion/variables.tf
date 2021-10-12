@@ -34,10 +34,10 @@ variable "key_name" {
 }
 
 # associate public ip address
-variable "associate_pub_ip_addr" {
-  type = string
+variable "associate_public_ip_address" {
+  type = bool
   description = "associate public ip address"
-  default = ""
+  default = true
 }
 
 # root volume size
