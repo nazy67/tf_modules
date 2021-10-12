@@ -1,3 +1,17 @@
+# subnet id
+variable "subnet_id" {
+  type = string
+  description = "subnet id"
+  default = ""
+}
+
+# vpc id
+variable "vpc_id" {
+  type = string
+  description = "vpc id"
+  default = ""
+}
+
 # ami
 variable "image_id" {
   type = string
@@ -9,21 +23,6 @@ variable "image_id" {
 variable "instance_type" {
   type = string
   description = "instance type"
-  default = ""
-}
-
-# bastion sg name
-variable "sg_name" {
-  type = string
-  description = "bastion sg name"
-  default = ""
-}
-
-
-# vpc id
-variable "vpc_id" {
-  type = string
-  description = "vpc id"
   default = ""
 }
 
@@ -69,10 +68,40 @@ variable "encrypted" {
   default = true
 }
 
-# subnet id
-variable "subnet_id" {
+# bastion sg variables
+variable "sg_name" {
   type = string
-  description = "subnet id"
+  description = "bastion sg name"
+  default = ""
+}
+
+variable "rule_type" {
+  type = string
+  description = "rule type"
+  default = ""
+}
+
+variable "ssh_port" {
+  type = string
+  description = "ssh port"
+  default = ""
+}
+
+variable "protocol_type" {
+  type = string
+  description = "protocol type"
+  default = ""
+}
+
+variable "ingress_ssh_local_ip" {
+  type = string
+  description = "local ip ingress"
+  default = ""
+}
+
+variable "web_sg" {
+  type = string
+  description = "web sg"
   default = ""
 }
 
