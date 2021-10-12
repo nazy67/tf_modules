@@ -93,10 +93,10 @@ variable "protocol_type" {
   default = ""
 }
 
-variable "ingress_ssh_local_ip" {
-  type = string
+variable "ssh_ip_ingress" {
+  type = list(string)
   description = "local ip ingress"
-  default = ""
+  default = []
 }
 
 variable "web_sg" {

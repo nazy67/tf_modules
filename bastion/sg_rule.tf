@@ -15,7 +15,7 @@ resource "aws_security_group_rule" "ssh_ingress" {
   from_port         = var.ssh_port
   to_port           = var.ssh_port
   protocol          = var.protocol_type
-  cidr_blocks       = var.ingress_ssh_local_ip
+  cidr_blocks       = var.ssh_ip_ingress
   security_group_id = aws_security_group.bastion_sg.id
 }
 
