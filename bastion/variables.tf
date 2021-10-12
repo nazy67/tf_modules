@@ -12,6 +12,21 @@ variable "instance_type" {
   default = ""
 }
 
+# bastion sg name
+variable "sg_name" {
+  type = string
+  description = "bastion sg name"
+  default = ""
+}
+
+
+# vpc id
+variable "vpc_id" {
+  type = string
+  description = "vpc id"
+  default = ""
+}
+
 # key name
 variable "key_name" {
   type = string
