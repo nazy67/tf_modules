@@ -1,5 +1,5 @@
 resource "aws_instance" "bastion_host" {
-    ami                    = var.ami
+    ami                    = var.image_id
     instance_type          = var.instance_type
     subnet_id              = var.subnet_id
     vpc_security_group_ids = [aws_security_group.bastion_sg.id]

@@ -1,11 +1,5 @@
-# providers variables
-variable "aws_region" {
-  type        = string
-  description = " aws region to deploy infra"
-}
-
 # ami
-variable "ami" {
+variable "image_id" {
   type = string
   description = "redhat ami"
   default = ""
@@ -15,6 +9,20 @@ variable "ami" {
 variable "instance_type" {
   type = string
   description = "instance type"
+  default = ""
+}
+
+# key name
+variable "key_name" {
+  type = string
+  description = "key name for bastion host"
+  default = ""
+}
+
+# associate public ip address
+variable "associate_pub_ip_addr" {
+  type = string
+  description = "associate public ip address"
   default = ""
 }
 
@@ -29,6 +37,27 @@ variable "root_volume_size" {
 variable "ebs_volume_type" {
   type = string
   description = "ebs volume type"
+  default = ""
+}
+
+# delete on termination
+variable "delete_on_termination" {
+  type = bool
+  description = "delete on termination"
+  default = true
+}
+
+# encrypt ebs volume
+variable "encrypted" {
+  type = bool
+  description = "encrypt ebs volume"
+  default = true
+}
+
+# subnet id
+variable "subnet_id" {
+  type = string
+  description = "subnet id"
   default = ""
 }
 
