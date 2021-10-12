@@ -38,26 +38,26 @@ resource "aws_subnet" "public_subnet_2" {
 }
 
 # Private Subnets
-resource "aws_subnet" "private_subnet_1" {
+resource "aws_subnet" "private_subnet_3" {
   vpc_id            = aws_vpc.my_vpc.id
-  cidr_block        = var.priv_cidr1_subnet
+  cidr_block        = var.priv_cidr3_subnet
   availability_zone = var.aws_az_1a
   tags = merge(
     local.common_tags,
     {
-      Name = "${var.env}_priv_sub1"
+      Name = "${var.env}_priv_sub3"
     }
   )
 }
 
-resource "aws_subnet" "private_subnet_2" {
+resource "aws_subnet" "private_subnet_4" {
   vpc_id            = aws_vpc.my_vpc.id
-  cidr_block        = var.priv_cidr2_subnet
+  cidr_block        = var.priv_cidr4_subnet
   availability_zone = var.aws_az_1b
   tags = merge(
     local.common_tags,
     {
-      Name = "${var.env}_priv_sub2"
+      Name = "${var.env}_priv_sub4"
     }
   )
 }
@@ -142,12 +142,12 @@ resource "aws_route_table" "private_rtb" {
 }
 
 # Private Route Table Association
-resource "aws_route_table_association" "priv_sub1" {
-  subnet_id      = aws_subnet.private_subnet_1.id
+resource "aws_route_table_association" "priv_sub3" {
+  subnet_id      = aws_subnet.private_subnet_3.id
   route_table_id = aws_route_table.private_rtb.id
 }
 
-resource "aws_route_table_association" "priv_sub2" {
-  subnet_id      = aws_subnet.private_subnet_2.id
+resource "aws_route_table_association" "priv_sub4" {
+  subnet_id      = aws_subnet.private_subnet_4.id
   route_table_id = aws_route_table.private_rtb.id
 }

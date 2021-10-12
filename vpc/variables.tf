@@ -61,13 +61,13 @@ variable "pub_cidr2_subnet" {
   default = ""
 }
 
-variable "priv_cidr1_subnet" {
+variable "priv_cidr3_subnet" {
   type        = string
   description = "CIDR block for the 1st private subnet"
   default = ""
 }
 
-variable "priv_cidr2_subnet" {
+variable "priv_cidr4_subnet" {
   type        = string
   description = "CIDR block for the 2nd private subnet"
   default = ""
