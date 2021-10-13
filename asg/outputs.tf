@@ -11,7 +11,7 @@ output "launch_template_arn" {
 
 output "launch_template_sg" {
   description = "the name of the launch template sg"
-  value       = aws_security_group.web_sg.name
+  value       = aws_security_group.web_template.id
 }
 
 # Autoscaling group
