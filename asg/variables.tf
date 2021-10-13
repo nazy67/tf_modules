@@ -101,7 +101,7 @@ variable "block_device_mappings" {
 variable "device_name" {
   type = string
   description = "device name"
-  default = null
+  default = ""
 }
 
 variable "no_device" {
