@@ -49,7 +49,7 @@ resource "aws_security_group_rule" "http_from_lb" {
   from_port                = var.http_ingress
   to_port                  = var.http_ingress
   protocol                 = var.protocol_type
-  source_security_group_id = var.alb_sg
+  source_security_group_id = var.lb_sg
   security_group_id        = aws_security_group.web_sg.id
 }
 

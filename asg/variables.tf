@@ -109,15 +109,8 @@ variable "bastion_sg" {
   default = null
 }
 
-variable "alb_sg" {
+variable "lb_sg" {
   type = string
   description = "app load balancer sg"
   default = null
-}
-
-# ALB variables
-variable "target_group_arns" {
-  description = "A set of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing"
-  type        = list(string)
-  default     = []
 }
