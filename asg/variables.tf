@@ -111,13 +111,13 @@ variable "rule_type" {
 }
 
 variable "ssh_port" {
-  type = string
+  type = number
   description = "ssh port"
   default = null
 }
 
 variable "http_port" {
-  type = string
+  type = number
   description = "ssh port"
   default = null
 }
