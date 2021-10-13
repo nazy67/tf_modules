@@ -87,7 +87,7 @@ variable "user_data_base64" {
 # EBS volume
 variable "block_device_mappings" {
   description = "block device mapping"
-  type        = map(map(string))
+  type        = list(any)
   default     = []
 }
 
