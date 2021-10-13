@@ -1,12 +1,11 @@
 # Application load balancer
 resource "aws_lb" "web_lb" {
-  name               = "${var.env}-web-lb"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [aws_security_group.lb_sg.id]
-  subnets            = [aws_subnet.public_subnet[0].id,
-                        aws_subnet.public_subnet[1].id,
-                        aws_subnet.public_subnet[2].id]
+  name               = var.alb_name             
+  internal           = var.is_internal          
+  load_balancer_type = var.load_balancer_type   
+  security_groups    = var.security_groups       
+  subnets            = var.public_subnets        
+  
   tags = merge(
     local.common_tags,
     {
@@ -17,10 +16,10 @@ resource "aws_lb" "web_lb" {
 
 # Target group
 resource "aws_lb_target_group" "web_tg" {
-  name     = "${var.env}-lb-tg"
+  name     = var.tg_name
   port     = 80
   protocol = "HTTP"
-  vpc_id   = aws_vpc.my_vpc.id
+  vpc_id   = var.vpc_id
 
   health_check {
     path    = "/"
@@ -32,40 +31,21 @@ resource "aws_lb_target_group" "web_tg" {
 # HTTP listeners rule
 resource "aws_lb_listener" "http_listener" {
   depends_on        = []
-  load_balancer_arn = aws_lb.web_lb.arn
-  port              = "80"
+  load_balancer_arn = var.app_lb_arn
+  port              = 80
   protocol          = "HTTP"
 
   default_action {
-    type = "redirect"
-
-    redirect {
-      port        = "443"
-      protocol    = "HTTPS"
-      status_code = "HTTP_301"
-    }
-  }
-}
-# HTTPS listeners rule
-resource "aws_lb_listener" "https_listener" {
-  depends_on        = []
-  load_balancer_arn = aws_lb.web_lb.arn
-  port              = "443"
-  protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = data.aws_acm_certificate.my_certificate.arn
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.web_tg.arn
+    type             = var.action_type
+    target_group_arn = var.tg_arn
   }
 }
 
 # ALB security group
 resource "aws_security_group" "lb_sg" {
-  name        = "${var.env}_lb_sg"
-  description = "allow http traffic"
-  vpc_id      = aws_vpc.my_vpc.id
+  name        = var.lb_sg_name 
+  description = var.lb_sg_description
+  vpc_id      = var.vpc_id
 
   tags = merge(
     local.common_tags,
@@ -76,13 +56,21 @@ resource "aws_security_group" "lb_sg" {
 }
 
 resource "aws_security_group_rule" "lb_ingress" {
-  for_each          = local.ingress_rules
-  type              = each.value.type
-  protocol          = each.value.protocol
-  from_port         = each.value.from_port
-  to_port           = each.value.to_port
-  cidr_blocks       = [each.value.cidr_block]
-  security_group_id = aws_security_group.lb_sg.id
+  type                     = var.rule_type
+  from_port                = var.http_ingress
+  to_port                  = var.http_ingress
+  protocol                 = var.protocol_type
+  cidr_blocks              = var.cidr_blocks
+  security_group_id        = aws_security_group.lb_sg.id
+}
+
+resource "aws_security_group_rule" "lt_ingress" {
+  type                     = var.rule_type
+  from_port                = var.http_ingress
+  to_port                  = var.http_ingress
+  protocol                 = var.protocol_type
+  source_security_group_id = var.launch_template_sg
+  security_group_id        = aws_security_group.lb_sg.id
 }
 
 resource "aws_security_group_rule" "lb_egress" {
