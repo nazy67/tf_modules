@@ -47,12 +47,6 @@ variable "desired_capacity" {
   default = null
 }
 
-variable "force_delete" {
-  type        = bool
-  description = "Allows deleting the asg without waiting for all instances in the pool to terminate"
-  default = true
-}
-
 # Launch template variables
 variable "is_force_delete" {
   type        = bool
@@ -112,5 +106,30 @@ variable "bastion_sg" {
 variable "lb_sg" {
   type = string
   description = "app load balancer sg"
+  default = null
+}
+
+# Tag variables
+variable "env" {
+  type = string
+  description = "environment"
+  default = null
+}
+
+variable "managed_by" {
+  type        = string
+  description = "managed by tf"
+  default = null
+}
+
+variable "owner" {
+  type        = string
+  description = "owner of the resources"
+  default = null
+}
+
+variable "giturl" {
+  type        = string
+  description = "git url to the template"
   default = null
 }
