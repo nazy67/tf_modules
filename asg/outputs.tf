@@ -14,9 +14,6 @@ output "launch_template_sg" {
   value       = aws_security_group.web_sg.name
 }
 
-# Security group
-
-
 # Autoscaling group
 output "autoscaling_group_id" {
   description = "the autoscaling group id"
