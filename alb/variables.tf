@@ -54,9 +54,9 @@ variable "http_port" {
 }
 
 variable "cidr_blocks" {
-  type = number
+  type = list
   description = "cidr blocks"
-  default = null
+  default = []
 }
 
 variable "protocol_type" {
@@ -72,7 +72,7 @@ variable "launch_template_sg" {
 }
 
 variable "lb_sg_description" {
-  type = number
+  type = string
   description = "load balancer sg description"
   default = null
 }
