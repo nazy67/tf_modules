@@ -2,8 +2,16 @@ resource "aws_s3_bucket" "main" {
   bucket = var.bucket_name
   acl    = var.is_acl
 
-  tags = var.tag_name
+  tags = { 
+    Name = var.bucket_name
+    common_tags = {
+      ManagedBy = var.managed_by
+      Env       = var.env
+      Owner     = var.owner
+      GitUrl    = var.giturl
+   }
   }
+}  
 
 resource "aws_s3_bucket_public_access_block" "main" {
   bucket                  = var.main_bucket_id
