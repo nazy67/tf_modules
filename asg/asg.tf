@@ -1,14 +1,13 @@
 # Auto scaling group
 resource "aws_autoscaling_group" "web_asg" {
-  name = "${var.env}_web_asg"
-  max_size         = 3
-  min_size         = 1
-  desired_capacity = 3
-  health_check_type         = "ELB" 
-  force_delete              = true
-  target_group_arns         = [aws_lb_target_group.web_tg.arn]
-  vpc_zone_identifier       = [aws_subnet.private_subnet.id,
-                               aws_subnet.private_subnet.id]                             
+  name                = var.asg_name
+  max_size            = var.max_size
+  min_size            = var.min_size
+  desired_capacity    = var.desired_capacity
+  health_check_type   = var.health_check_type
+  force_delete        = var.force_delete
+  target_group_arns   = var.target_group_arns
+  vpc_zone_identifier = var.vpc_zone_identifier                             
                        
   launch_template {
     id      = aws_launch_template.web_template.id

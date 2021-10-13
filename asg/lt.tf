@@ -1,14 +1,17 @@
 # Launch Template
 resource "aws_launch_template" "web_template" {
-  name_prefix   = "${var.env}_web_template"
-  image_id      = data.aws_ami.amazon_linux2.image_id
-  instance_type = var.instance_type
-  vpc_security_group_ids = [aws_security_group.web_sg.id]
-  
+  name_prefix            = var.name_prefix
+  image_id               = var.image_id
+  instance_type          = var.instance_type
+  vpc_security_group_ids = var.security_groups
+  key_name               = var.key_name
+
   lifecycle {
     create_before_destroy = true
   }
-  user_data       = filebase64("${path.module}/user_data.sh")
+  
+  block_device_mappings  = var.block_device_mappings
+  user_data       = var.user_data_base64
 
   tags = merge(
     local.common_tags,
@@ -20,9 +23,9 @@ resource "aws_launch_template" "web_template" {
 
 # Security group for webserver
 resource "aws_security_group" "web_sg" {
-  name        = "${var.env}_web_sg"
-  description = "allow http traffic"
-  vpc_id      = aws_vpc.my_vpc.id
+  name        = var.asg_sg_name
+  description = "allow traffic"
+  vpc_id      = var.vpc_id
   
   tags = merge(
     local.common_tags,
@@ -32,12 +35,21 @@ resource "aws_security_group" "web_sg" {
   )
 }
 
+resource "aws_security_group_rule" "bastion_ssh_ingress" {
+  type                     = var.rule_type
+  from_port                = var.ssh_port
+  to_port                  = var.ssh_port
+  protocol                 = var.protocol_type
+  source_security_group_id = var.bastion_sg
+  security_group_id        = aws_security_group.web_sg.id
+}
+
 resource "aws_security_group_rule" "http_from_lb" {
-  type                     = "ingress"
-  from_port                = 80
-  to_port                  = 80
-  protocol                 = "tcp"
-  source_security_group_id = aws_security_group.lb_sg.id
+  type                     = var.rule_type
+  from_port                = var.http_ingress
+  to_port                  = var.http_ingress
+  protocol                 = var.protocol_type
+  source_security_group_id = var.alb_sg
   security_group_id        = aws_security_group.web_sg.id
 }
 
