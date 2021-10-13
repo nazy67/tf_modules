@@ -5,13 +5,24 @@ resource "aws_launch_template" "web_template" {
   instance_type          = var.instance_type
   vpc_security_group_ids = var.security_groups
   key_name               = var.key_name
-
+  user_data              = var.user_data_base64
+  
   lifecycle {
     create_before_destroy = true
   }
-  
-  block_device_mappings  = var.block_device_mappings
-  user_data       = var.user_data_base64
+
+  # EBS volume  
+  block_device_mappings {
+    device_name = var.device_name
+    no_device   = var.no_device
+
+    ebs {
+      delete_on_termination = var.delete_on_termination
+      encrypted             = var.encrypted
+      volume_size           = var.volume_size
+      volume_type           = var.volume_type
+    }
+  }
 
   tags = merge(
     local.common_tags,

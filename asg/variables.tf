@@ -84,10 +84,47 @@ variable "user_data_base64" {
   default     = null
 }
 
+# EBS volume
 variable "block_device_mappings" {
   description = "block device mapping"
-  type        = list(string)
+  type        = map(map(map))
   default     = []
+}
+
+variable "device_name" {
+  type = string
+  description = "device name"
+  default = null
+}
+
+variable "no_device" {
+  type = number
+  description = "device name"
+  default = null
+}
+
+variable "delete_on_termination" {
+  type = bool
+  description = "delete on termination"
+  default = null
+}
+
+variable "encrypted" {
+  type = bool
+  description = "encrypted ebs"
+  default = null
+}
+
+variable "volume_size" {
+  type = number
+  description = "ebs volume size"
+  default = null
+}
+
+variable "volume_type" {
+  type = string
+  description = "ebs volume type"
+  default = null
 }
 
 # VPC id
