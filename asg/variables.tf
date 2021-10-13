@@ -178,7 +178,7 @@ variable "lb_sg" {
   default     = ""
 }
 
-variable "security_groups" {
+variable "asg_security_group_ids" {
   type        = list(any)
   description = "asg security group"
   default     = []
