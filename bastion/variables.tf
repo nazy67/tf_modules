@@ -44,7 +44,7 @@ variable "associate_public_ip_address" {
 variable "root_volume_size" {
   type        = number
   description = "root volume size"
-  default     = ""
+  default     = null
 }
 
 # EBS volume type
