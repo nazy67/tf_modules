@@ -20,7 +20,7 @@ variable "is_internal" {
 variable "load_balancer_type" {
   type = string
   description = "load balancer type: application"
-  default = null
+  default = "application"
 }
 
 # ALB security group 
@@ -38,31 +38,31 @@ variable "lb_sg_name" {
 variable "rule_type" {
   type = string
   description = "rule type"
-  default = null
+  default = "ingress"
 }
 
 variable "ssh_port" {
   type = number
   description = "ssh port"
-  default = null
+  default = 22
 }
 
 variable "http_port" {
   type = number
   description = "http port"
-  default = null
+  default = 80
 }
 
 variable "cidr_blocks" {
   type = list
   description = "cidr blocks"
-  default = []
+  default = ["0.0.0.0/0"]
 }
 
 variable "protocol_type" {
   type = string
   description = "protocol type"
-  default = null
+  default = "tcp"
 }
 
 variable "launch_template_sg" {
@@ -74,7 +74,7 @@ variable "launch_template_sg" {
 variable "lb_sg_description" {
   type = string
   description = "load balancer sg description"
-  default = null
+  default = "allow http traffic"
 }
 
 # VPC id
@@ -94,7 +94,7 @@ variable "app_lb_arn" {
 variable "action_type" {
   type = string
   description = "action type forward/redirect"
-  default = null
+  default = "forward"
 }
 
 # Targer group variables
