@@ -54,9 +54,9 @@ variable "force_delete" {
 }
 
 # Launch template variables
-variable "force_delete" {
+variable "is_force_delete" {
   type        = bool
-  description = ""
+  description = "delete force"
   default = true
 }
 

@@ -5,7 +5,7 @@ resource "aws_autoscaling_group" "web_asg" {
   min_size            = var.min_size
   desired_capacity    = var.desired_capacity
   health_check_type   = var.health_check_type
-  force_delete        = var.force_delete
+  force_delete        = var.is_force_delete
   target_group_arns   = var.target_group_arns
   vpc_zone_identifier = var.vpc_zone_identifier                             
                        
