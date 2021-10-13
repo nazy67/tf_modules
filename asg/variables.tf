@@ -54,12 +54,6 @@ variable "alb_target_group_arn" {
   default     = null
 }
 
-variable "alb_target_group_arn" {
-  type        = string
-  description = "alb target group arn"
-  default     = null
-}
-
 # Launch template variables
 variable "name_prefix" {
   type        = string
