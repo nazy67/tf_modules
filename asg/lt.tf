@@ -14,8 +14,6 @@ resource "aws_launch_template" "web_template" {
   # EBS volume  
   block_device_mappings {
     device_name = var.device_name
-    no_device   = var.no_device
-
     ebs {
       delete_on_termination = var.delete_on_termination
       encrypted             = var.encrypted
