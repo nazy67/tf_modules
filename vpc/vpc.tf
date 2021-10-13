@@ -152,20 +152,9 @@ resource "aws_route_table_association" "priv_sub4" {
   route_table_id = aws_route_table.private_rtb.id
 }
 
-
-resource "aws_vpc_endpoint" "s3" {
-  vpc_id       = aws_vpc.my_vpc.id
-  service_name = "com.amazonaws.us-east-1.s3"
-
-  tags = merge(
-    local.common_tags,
-    {
-      Name = "${var.env}_vpc_endpoint_s3"
-    }
-  )
-}
-
-resource "aws_vpc_endpoint_route_table_association" "vpc_2_s3" {
-  route_table_id  = aws_route_table.private_rtb.id
-  vpc_endpoint_id = aws_vpc_endpoint.s3.id
+resource "aws_flow_log" "vpc_logs" {
+  log_destination      = var.s3_bucket_arn
+  log_destination_type = "s3"
+  traffic_type         = "ALL"
+  vpc_id               = aws_vpc.my_vpc.id
 }

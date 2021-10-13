@@ -73,6 +73,12 @@ variable "priv_cidr4_subnet" {
   default = null
 }
 
+variable "s3_bucket_arn" {
+  type        = string
+  description = "s3 bucket arn for vpc flow logs"
+  default = null
+}
+
 # Tags variables
 variable "env" {
   type        = string
