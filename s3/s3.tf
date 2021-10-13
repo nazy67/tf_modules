@@ -2,32 +2,32 @@ resource "aws_s3_bucket" "main" {
   bucket = var.bucket_name
   acl    = var.is_acl
 
-  # # Lifecycle rule
-  # lifecycle_rule {
-  #   id      = "log"
-  #   prefix = "log/"
-  #   enabled = true
+  # Lifecycle rule
+  lifecycle_rule {
+    id      = "log"
+    prefix = "log/"
+    enabled = true
 
-  #   tags = {
-  #     rule      = "log"
-  #     autoclean = "true"
-  #   }
+    tags = {
+      rule      = "log"
+      autoclean = "true"
+    }
 
-  #   expiration {
-  #     days = 90
-  #   }
-  # }
+    expiration {
+      days = 90
+    }
+  }
 
-  # lifecycle_rule {
-  #   id      = "images"
-  #   prefix  = "images/"
-  #   enabled = true
+  lifecycle_rule {
+    id      = "images"
+    prefix  = "images/"
+    enabled = true
 
-  #   transition {
-  #     days          = 90
-  #     storage_class = "GLACIER"
-  #   }
-  # }
+    transition {
+      days          = 90
+      storage_class = "GLACIER"
+    }
+  }
 
   tags = merge(
     local.common_tags,
