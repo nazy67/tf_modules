@@ -240,42 +240,11 @@ variable "volume_type" {
   default     = ""
 }
 
-# VPC id
-variable "vpc_id" {
-  type        = string
-  description = "vpc id"
-  default     = ""
-}
-
 # Web sg group
 variable "asg_sg_name" {
   description = "asg name"
   type        = string
   default     = ""
-}
-
-variable "rule_type" {
-  type        = string
-  description = "rule type"
-  default     = "ingress"
-}
-
-variable "ssh_port" {
-  type        = number
-  description = "ssh port"
-  default     = 22
-}
-
-variable "http_port" {
-  type        = number
-  description = "ssh port"
-  default     = 80
-}
-
-variable "protocol_type" {
-  type        = string
-  description = "protocol type"
-  default     = "tcp"
 }
 
 variable "bastion_sg" {
