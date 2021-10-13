@@ -29,15 +29,12 @@ resource "aws_s3_bucket" "main" {
   #   }
   # }
 
-  tags = { 
-    Name = var.bucket_name
-    common_tags = {
-      ManagedBy = var.managed_by
-      Env       = var.env
-      Owner     = var.owner
-      GitUrl    = var.giturl
-   }
-  }
+  tags = merge(
+    local.common_tags,
+    {
+      Name = "${var.env}_s3_main"
+    }
+  )
 }  
 
 resource "aws_s3_bucket_public_access_block" "main" {

@@ -41,12 +41,6 @@ variable "is_acl" {
 }
 
 # Tag variables
-variable "tags" {
-  description = "tags to assign to the bucket"
-  type        = map(string)
-  default     = {}
-}
-
 variable "env" {
   type = string
   description = "environment"
