@@ -95,7 +95,7 @@ variable "app_lb_arn" {
 variable "target_group_name" {
   type        = string
   description = "target group name"
-  default     = ""
+  default     = null
 }
 
 variable "target_group_arn" {
@@ -170,7 +170,7 @@ variable "alb_target_group_arn" {
 variable "name_prefix" {
   type        = string
   description = "name prefix"
-  default     = ""
+  default     = null
 }
 
 variable "image_id" {
@@ -237,7 +237,7 @@ variable "volume_size" {
 variable "volume_type" {
   type        = string
   description = "ebs volume type"
-  default     = ""
+  default     = null
 }
 
 # Web sg group
