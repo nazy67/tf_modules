@@ -5,6 +5,12 @@ variable "lb_name" {
   default = null
 }
 
+variable "public_subnets" {
+  type = list(string)
+  description = "load balancer name"
+  default = []
+}
+
 variable "is_internal" {
   type = bool
   description = "internal/internet facing"
@@ -19,9 +25,9 @@ variable "load_balancer_type" {
 
 # ALB security group 
 variable "security_groups" {
-  type = string
+  type = list(string)
   description = "application load balance sg"
-  default = null
+  default = []
 }
 
 variable "lb_sg_name" {
