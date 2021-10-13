@@ -104,12 +104,6 @@ variable "device_name" {
   default = ""
 }
 
-variable "no_device" {
-  type = number
-  description = "device name"
-  default = null
-}
-
 variable "delete_on_termination" {
   type = bool
   description = "delete on termination"
