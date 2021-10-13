@@ -37,7 +37,7 @@ resource "aws_lb_listener" "http_listener" {
 
   default_action {
     type             = var.action_type
-    target_group_arn = var.tg_arn
+    target_group_arn = var.target_group_arn
   }
 }
 
