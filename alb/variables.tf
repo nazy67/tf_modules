@@ -5,12 +5,6 @@ variable "lb_name" {
   default = null
 }
 
-variable "app_lb_arn" {
-  type = string
-  description = "load balancer arn"
-  default = null
-}
-
 variable "is_internal" {
   type = bool
   description = "internal/internet facing"
