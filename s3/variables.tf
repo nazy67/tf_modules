@@ -1,60 +1,60 @@
 variable "ignore_public_acls" {
-  type = bool
+  type        = bool
   description = "ignore public acls"
-  default = true
+  default     = true
 }
 
 variable "restrict_public_buckets" {
-  type = bool
+  type        = bool
   description = "restrict public buckets"
-  default = true
+  default     = true
 }
 
 variable "block_public_acls" {
-  type = bool
+  type        = bool
   description = "block public acls"
-  default = true
+  default     = true
 }
 
 variable "block_public_policy" {
-  type = bool
+  type        = bool
   description = "block public policy"
-  default = true
+  default     = true
 }
 
 variable "bucket_name" {
-  type = string
+  type        = string
   description = "bucket name"
-  default = null
+  default     = ""
 }
 
 variable "is_acl" {
-  type = string
+  type        = string
   description = "access control list"
-  default = "private"
+  default     = "private"
 }
 
 # Tag variables
 variable "env" {
-  type = string
+  type        = string
   description = "environment"
-  default = null
+  default     = ""
 }
 
 variable "managed_by" {
   type        = string
   description = "managed by tf"
-  default = null
+  default     = ""
 }
 
 variable "owner" {
   type        = string
   description = "owner of the resources"
-  default = null
+  default     = ""
 }
 
 variable "giturl" {
   type        = string
   description = "git url to the template"
-  default = null
+  default     = ""
 }

@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "main" {
   # Lifecycle rule
   lifecycle_rule {
     id      = "log"
-    prefix = "log/"
+    prefix  = "log/"
     enabled = true
 
     tags = {
@@ -35,7 +35,7 @@ resource "aws_s3_bucket" "main" {
       Name = "${var.env}_s3_main"
     }
   )
-}  
+}
 
 resource "aws_s3_bucket_public_access_block" "main" {
   bucket                  = aws_s3_bucket.main.id
