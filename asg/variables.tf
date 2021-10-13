@@ -48,6 +48,24 @@ variable "desired_capacity" {
 }
 
 # Launch template variables
+variable "name_prefix" {
+  type        = string
+  description = "delete force"
+  default = ""
+}
+
+variable "image_id" {
+  type        = string
+  description = "redhat image id"
+  default = ""
+}
+
+variable "key_name" {
+  type        = string
+  description = "key name"
+  default = ""
+}
+
 variable "is_force_delete" {
   type        = bool
   description = "delete force"
@@ -70,6 +88,13 @@ variable "block_device_mappings" {
   description = "block device mapping"
   type        = list(map(string))
   default     = []
+}
+
+# VPC id
+variable "vpc_id" {
+  type = string
+  description = "vpc id"
+  default = null
 }
 
 # Web sg group
@@ -97,6 +122,12 @@ variable "http_port" {
   default = null
 }
 
+variable "protocol_type" {
+  type = string
+  description = "protocol type"
+  default = null
+}
+
 variable "bastion_sg" {
   type = string
   description = "bastion host sg"
@@ -106,6 +137,12 @@ variable "bastion_sg" {
 variable "lb_sg" {
   type = string
   description = "app load balancer sg"
+  default = null
+}
+
+variable "security_groups" {
+  type = string
+  description = "asg security group"
   default = null
 }
 
