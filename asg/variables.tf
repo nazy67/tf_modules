@@ -2,87 +2,87 @@
 variable "vpc_zone_identifier" {
   description = "list of subnet ids to launch resources in"
   type        = list(string)
-  default     = null
+  default     = []
 }
 
 variable "health_check_type" {
   description = "`EC2` or `ELB`"
   type        = string
-  default     = null
+  default     = ""
 }
 
 variable "instance_type" {
   type        = string
   description = "this is instance type"
-  default = null
+  default     = ""
 }
 
 variable "target_group_arns" {
   description = "this is instance type"
   type        = list(string)
-  default     = null
+  default     = []
 }
 
 variable "asg_name" {
   type        = string
   description = "asg name"
-  default = ""
+  default     = ""
 }
 
 variable "max_size" {
   type        = number
   description = "minimum size of the autoscaling group"
-  default = null
+  default     = null
 }
 
 variable "min_size" {
   type        = number
   description = "maximum size of the autoscaling group"
-  default = null
+  default     = null
 }
 
 variable "desired_capacity" {
   type        = number
   description = "The number of ec2 instances that should be running in the asg"
-  default = null
+  default     = null
 }
 
 # ASG and ALB association
 variable "alb_target_group_arn" {
   type        = string
   description = "alb target group arn"
-  default     = null
+  default     = ""
 }
 
 # Launch template variables
 variable "name_prefix" {
   type        = string
   description = "name prefix"
-  default = ""
+  default     = ""
 }
 
 variable "image_id" {
   type        = string
   description = "redhat image id"
-  default = ""
+  default     = ""
 }
 
 variable "key_name" {
   type        = string
   description = "key name"
-  default = ""
+  default     = ""
 }
 
 variable "is_force_delete" {
   type        = bool
   description = "delete force"
-  default = true
+  default     = true
 }
 
 variable "availability_zone" {
   description = "A list of one or more availability zones for the group"
   type        = list(string)
-  default     = null
+  default     = []
 }
 
 variable "user_data_base64" {
@@ -99,112 +99,112 @@ variable "block_device_mappings" {
 }
 
 variable "device_name" {
-  type = string
+  type        = string
   description = "device name"
-  default = "/dev/sda1"
+  default     = "/dev/sda1"
 }
 
 variable "delete_on_termination" {
-  type = bool
+  type        = bool
   description = "delete on termination"
-  default = null
+  default     = null
 }
 
 variable "encrypted" {
-  type = bool
+  type        = bool
   description = "encrypted ebs"
-  default = null
+  default     = null
 }
 
 variable "volume_size" {
-  type = number
+  type        = number
   description = "ebs volume size"
-  default = null
+  default     = null
 }
 
 variable "volume_type" {
-  type = string
+  type        = string
   description = "ebs volume type"
-  default = null
+  default     = ""
 }
 
 # VPC id
 variable "vpc_id" {
-  type = string
+  type        = string
   description = "vpc id"
-  default = null
+  default     = ""
 }
 
 # Web sg group
 variable "asg_sg_name" {
   description = "asg name"
   type        = string
-  default     = null
+  default     = ""
 }
 
 variable "rule_type" {
-  type = string
+  type        = string
   description = "rule type"
-  default = "ingress"
+  default     = "ingress"
 }
 
 variable "ssh_port" {
-  type = number
+  type        = number
   description = "ssh port"
-  default = 22
+  default     = 22
 }
 
 variable "http_port" {
-  type = number
+  type        = number
   description = "ssh port"
-  default = 80
+  default     = 80
 }
 
 variable "protocol_type" {
-  type = string
+  type        = string
   description = "protocol type"
-  default = "tcp"
+  default     = "tcp"
 }
 
 variable "bastion_sg" {
-  type = string
+  type        = string
   description = "bastion host sg"
-  default = null
+  default     = ""
 }
 
 variable "lb_sg" {
-  type = string
+  type        = string
   description = "app load balancer sg"
-  default = null
+  default     = ""
 }
 
 variable "security_groups" {
-  type = list
+  type        = list(any)
   description = "asg security group"
-  default = []
+  default     = []
 }
 
 # Tag variables
 variable "env" {
-  type = string
+  type        = string
   description = "environment"
-  default = null
+  default     = ""
 }
 
 variable "managed_by" {
   type        = string
   description = "managed by tf"
-  default = null
+  default     = ""
 }
 
 variable "owner" {
   type        = string
   description = "owner of the resources"
-  default = null
+  default     = ""
 }
 
 variable "giturl" {
   type        = string
   description = "git url to the template"
-  default = null
+  default     = ""
 }

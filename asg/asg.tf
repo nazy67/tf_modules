@@ -7,8 +7,8 @@ resource "aws_autoscaling_group" "web_asg" {
   health_check_type   = var.health_check_type
   force_delete        = var.is_force_delete
   target_group_arns   = var.target_group_arns
-  vpc_zone_identifier = var.vpc_zone_identifier                             
-                       
+  vpc_zone_identifier = var.vpc_zone_identifier
+
   launch_template {
     id      = aws_launch_template.web_template.id
     version = aws_launch_template.web_template.latest_version

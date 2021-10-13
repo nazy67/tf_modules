@@ -6,7 +6,7 @@ resource "aws_launch_template" "web_template" {
   vpc_security_group_ids = var.security_groups
   key_name               = var.key_name
   user_data              = var.user_data_base64
-  
+
   lifecycle {
     create_before_destroy = true
   }
@@ -35,7 +35,7 @@ resource "aws_security_group" "web_sg" {
   name        = var.asg_sg_name
   description = "allow traffic"
   vpc_id      = var.vpc_id
-  
+
   tags = merge(
     local.common_tags,
     {
