@@ -1,96 +1,96 @@
-# subnet id
+# Subnet id
 variable "subnet_id" {
   type = string
   description = "subnet id"
-  default = ""
+  default = null
 }
 
-# vpc id
+# VPC id
 variable "vpc_id" {
   type = string
   description = "vpc id"
-  default = ""
+  default = null
 }
 
-# ami
+# AMI
 variable "image_id" {
   type = string
   description = "redhat ami"
-  default = ""
+  default = null
 }
 
-# instance type
+# Instance type
 variable "instance_type" {
   type = string
   description = "instance type"
-  default = ""
+  default = null
 }
 
-# key name
+# Key name
 variable "key_name" {
   type = string
   description = "key name for bastion host"
-  default = ""
+  default = null
 }
 
-# associate public ip address
+# Associate public ip address
 variable "associate_public_ip_address" {
   type = bool
   description = "associate public ip address"
   default = true
 }
 
-# root volume size
+# Root volume size
 variable "root_volume_size" {
-  type = string
+  type = number
   description = "root volume size"
-  default = ""
+  default = null
 }
 
-# ebs volume type
+# EBS volume type
 variable "ebs_volume_type" {
   type = string
   description = "ebs volume type"
   default = ""
 }
 
-# delete on termination
+# Delete on termination
 variable "delete_on_termination" {
   type = bool
   description = "delete on termination"
   default = true
 }
 
-# encrypt ebs volume
+# Encrypt ebs volume
 variable "encrypted" {
   type = bool
   description = "encrypt ebs volume"
   default = true
 }
 
-# bastion sg variables
+# Bastion sg variables
 variable "sg_name" {
   type = string
   description = "bastion sg name"
-  default = ""
+  default = null
 }
 
 variable "rule_type" {
   type = string
   description = "rule type"
-  default = ""
+  default = null
 }
 
 variable "ssh_port" {
-  type = string
+  type = number
   description = "ssh port"
-  default = ""
+  default = null
 }
 
 variable "protocol_type" {
   type = string
   description = "protocol type"
-  default = ""
+  default = null
 }
 
 variable "ssh_ip_ingress" {
@@ -99,27 +99,33 @@ variable "ssh_ip_ingress" {
   default = []
 }
 
-variable "web_sg" {
+variable "launch_template_sg" {
   type = string
-  description = "web sg"
-  default = ""
+  description = "launch template sg"
+  default = null
 }
 
-# tag variables
+# Tag variables
 variable "env" {
   type = string
+  description = "environment"
+  default = null
 }
+
 variable "managed_by" {
   type        = string
-  description = "managed by tr or cfn"
+  description = "managed by tf"
+  default = null
 }
 
 variable "owner" {
   type        = string
   description = "owner of the resources"
+  default = null
 }
 
 variable "giturl" {
   type        = string
   description = "git url to the template"
+  default = null
 }

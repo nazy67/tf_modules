@@ -19,15 +19,6 @@ resource "aws_security_group_rule" "ssh_ingress" {
   security_group_id = aws_security_group.bastion_sg.id
 }
 
-# resource "aws_security_group_rule" "web_ssh_ingress" {
-#   type                     = var.rule_type
-#   from_port                = var.http_ingress
-#   to_port                  = var.http_ingress
-#   protocol                 = var.protocol_type
-#   source_security_group_id = aws_security_group.web_sg.id
-#   security_group_id        = aws_security_group.bastion_sg.id
-# }
-
 resource "aws_security_group_rule" "egress_rule" {
   type              = "egress"
   from_port         = 0
