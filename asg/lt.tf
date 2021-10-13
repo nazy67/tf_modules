@@ -3,7 +3,7 @@ resource "aws_launch_template" "web_template" {
   name_prefix            = var.name_prefix
   image_id               = var.image_id
   instance_type          = var.instance_type
-  vpc_security_group_ids = var.security_groups
+  vpc_security_group_ids = var.asg_security_group_ids
   key_name               = var.key_name
   user_data              = var.user_data_base64
 
