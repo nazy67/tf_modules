@@ -22,9 +22,9 @@ variable "block_public_acls" {
   default = null
 }
 
-variable "lock_public_policy" {
+variable "block_public_policy" {
   type = bool
-  description = "lock public policy"
+  description = "block public policy"
   default = null
 }
 
