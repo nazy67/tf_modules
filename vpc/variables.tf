@@ -15,7 +15,7 @@ variable "vpc_cidr_block" {
 variable "instance_tenancy" {
   type        = string
   description = "the tenancy of existing VPCs from dedicated to default instantly"
-  default = ""
+  default = "default"
 }
 
 variable "is_enabled_dns_support" {
@@ -33,67 +33,67 @@ variable "is_enabled_dns_hostnames" {
 variable "cidr_block" {
   description = "ingress/egress cidr block"
   type        = string
-  default = ""
+  default = "0.0.0.0/0"
 }
 
 # Subnet variables
 variable "aws_az_1a" {
   type        = string
   description = "The region Terraform deploys your infra"
-  default = ""
+  default = null
 }
 
 variable "aws_az_1b" {
   type        = string
   description = "The region Terraform deploys your infra"
-  default = ""
+  default = null
 }
 
 variable "pub_cidr1_subnet" {
   type        = string
   description = "CIDR block for the  1st public subnet"
-  default = ""
+  default = null
 }
 
 variable "pub_cidr2_subnet" {
   type        = string
   description = "CIDR block for the 2nd public subnet"
-  default = ""
+  default = null
 }
 
 variable "priv_cidr3_subnet" {
   type        = string
   description = "CIDR block for the 1st private subnet"
-  default = ""
+  default = null
 }
 
 variable "priv_cidr4_subnet" {
   type        = string
   description = "CIDR block for the 2nd private subnet"
-  default = ""
+  default = null
 }
 
 # Tags variables
 variable "env" {
   type        = string
   description = "environment name"
-  default = ""
+  default = null
 }
 
 variable "managed_by" {
   type        = string
   description = "managed by tr or cfn"
-  default = ""
+  default = null
 }
 
 variable "owner" {
   type        = string
   description = "owner of the resources"
-  default = ""
+  default = null
 }
 
 variable "giturl" {
   type        = string
   description = "git url to the template"
-  default = ""
+  default = null
 }
