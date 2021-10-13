@@ -144,13 +144,13 @@ variable "asg_name" {
 variable "max_size" {
   type        = number
   description = "minimum size of the autoscaling group"
-  default     = ""
+  default     = null
 }
 
 variable "min_size" {
   type        = number
   description = "maximum size of the autoscaling group"
-  default     = ""
+  default     = null
 }
 
 variable "desired_capacity" {
