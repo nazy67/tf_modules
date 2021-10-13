@@ -151,25 +151,25 @@ variable "asg_sg_name" {
 variable "rule_type" {
   type = string
   description = "rule type"
-  default = null
+  default = "ingress"
 }
 
 variable "ssh_port" {
   type = number
   description = "ssh port"
-  default = null
+  default = 22
 }
 
 variable "http_port" {
   type = number
   description = "ssh port"
-  default = null
+  default = 80
 }
 
 variable "protocol_type" {
   type = string
   description = "protocol type"
-  default = null
+  default = "tcp"
 }
 
 variable "bastion_sg" {
