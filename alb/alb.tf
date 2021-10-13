@@ -70,7 +70,7 @@ resource "aws_security_group_rule" "lt_ingress" {
   from_port                = var.http_port
   to_port                  = var.http_port
   protocol                 = var.protocol_type
-  source_security_group_id = aws_security_group.web_sg.id
+  source_security_group_id = var.launch_template_sg
   security_group_id        = aws_security_group.lb_sg.id
 }
 
