@@ -6,3 +6,14 @@ locals {
     GitUrl      = var.giturl
   }
 }
+
+locals {
+  ingress_rules = {
+    1 = { from_port = 443,
+      to_port     = 443,
+      protocol    = "tcp",
+      cidr_block  = "0.0.0.0/0",
+      description = "https_ingress",
+      type = "ingress" }
+  }
+}
