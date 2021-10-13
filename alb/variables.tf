@@ -1,136 +1,136 @@
 # ALB variables
 variable "lb_name" {
-  type = string
+  type        = string
   description = "load balancer name"
-  default = null
+  default     = ""
 }
 
 variable "public_subnets" {
-  type = list
+  type        = list(any)
   description = "load balancer name"
-  default = []
+  default     = []
 }
 
 variable "is_internal" {
-  type = bool
+  type        = bool
   description = "internal/internet facing"
-  default = false
+  default     = false
 }
 
 variable "load_balancer_type" {
-  type = string
+  type        = string
   description = "load balancer type: application"
-  default = "application"
+  default     = "application"
 }
 
 # ALB security group 
 variable "security_groups" {
-  type = list(string)
+  type        = list(string)
   description = "application load balance sg"
-  default = []
+  default     = []
 }
 
 variable "lb_sg_name" {
-  type = string
+  type        = string
   description = "load balancer sg name"
-  default = null
+  default     = ""
 }
 variable "rule_type" {
-  type = string
+  type        = string
   description = "rule type"
-  default = "ingress"
+  default     = "ingress"
 }
 
 variable "ssh_port" {
-  type = number
+  type        = number
   description = "ssh port"
-  default = 22
+  default     = 22
 }
 
 variable "http_port" {
-  type = number
+  type        = number
   description = "http port"
-  default = 80
+  default     = 80
 }
 
 variable "cidr_blocks" {
-  type = list
+  type        = list(any)
   description = "cidr blocks"
-  default = ["0.0.0.0/0"]
+  default     = ["0.0.0.0/0"]
 }
 
 variable "protocol_type" {
-  type = string
+  type        = string
   description = "protocol type"
-  default = "tcp"
+  default     = "tcp"
 }
 
 variable "launch_template_sg" {
-  type = string
+  type        = string
   description = "launch template sg"
-  default = null
+  default     = ""
 }
 
 variable "lb_sg_description" {
-  type = string
+  type        = string
   description = "load balancer sg description"
-  default = "allow http traffic"
+  default     = "allow http traffic"
 }
 
 # VPC id
 variable "vpc_id" {
-  type = string
+  type        = string
   description = "vpc id"
-  default = null
+  default     = ""
 }
 
 # HTTP listeners rule
 variable "app_lb_arn" {
-  type = string
+  type        = string
   description = "application load balancer arn"
-  default = null
-}  
+  default     = ""
+}
 
 variable "action_type" {
-  type = string
+  type        = string
   description = "action type forward/redirect"
-  default = "forward"
+  default     = "forward"
 }
 
 # Targer group variables
 variable "target_group_name" {
-  type = string
+  type        = string
   description = "target group name"
-  default = null
+  default     = ""
 }
 
 variable "target_group_arn" {
-  type = string
+  type        = string
   description = "target group arn"
-  default = null
+  default     = ""
 }
 
 # Tag variables
 variable "env" {
-  type = string
+  type        = string
   description = "environment"
-  default = null
+  default     = ""
 }
 
 variable "managed_by" {
   type        = string
   description = "managed by tf"
-  default = null
+  default     = ""
 }
 
 variable "owner" {
   type        = string
   description = "owner of the resources"
-  default = null
+  default     = ""
 }
 
 variable "giturl" {
   type        = string
   description = "git url to the template"
-  default = null
+  default     = ""
 }

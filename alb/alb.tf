@@ -1,11 +1,11 @@
 # Application load balancer
 resource "aws_lb" "web_lb" {
-  name               = var.lb_name             
-  internal           = var.is_internal          
-  load_balancer_type = var.load_balancer_type   
-  security_groups    = var.security_groups       
-  subnets            = var.public_subnets        
-  
+  name               = var.lb_name
+  internal           = var.is_internal
+  load_balancer_type = var.load_balancer_type
+  security_groups    = var.security_groups
+  subnets            = var.public_subnets
+
   tags = merge(
     local.common_tags,
     {
@@ -43,7 +43,7 @@ resource "aws_lb_listener" "http_listener" {
 
 # ALB security group
 resource "aws_security_group" "lb_sg" {
-  name        = var.lb_sg_name 
+  name        = var.lb_sg_name
   description = var.lb_sg_description
   vpc_id      = var.vpc_id
 
@@ -56,12 +56,12 @@ resource "aws_security_group" "lb_sg" {
 }
 
 resource "aws_security_group_rule" "lb_ingress" {
-  type                     = var.rule_type
-  from_port                = var.http_port
-  to_port                  = var.http_port
-  protocol                 = var.protocol_type
-  cidr_blocks              = var.cidr_blocks
-  security_group_id        = aws_security_group.lb_sg.id
+  type              = var.rule_type
+  from_port         = var.http_port
+  to_port           = var.http_port
+  protocol          = var.protocol_type
+  cidr_blocks       = var.cidr_blocks
+  security_group_id = aws_security_group.lb_sg.id
 }
 
 resource "aws_security_group_rule" "lt_ingress" {
