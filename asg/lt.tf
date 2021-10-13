@@ -46,8 +46,8 @@ resource "aws_security_group_rule" "bastion_ssh_ingress" {
 
 resource "aws_security_group_rule" "http_from_lb" {
   type                     = var.rule_type
-  from_port                = var.http_ingress
-  to_port                  = var.http_ingress
+  from_port                = var.http_port
+  to_port                  = var.http_port
   protocol                 = var.protocol_type
   source_security_group_id = var.lb_sg
   security_group_id        = aws_security_group.web_sg.id
