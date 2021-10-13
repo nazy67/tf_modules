@@ -125,7 +125,7 @@ variable "volume_size" {
 variable "volume_type" {
   type        = string
   description = "ebs volume type"
-  default     = ""
+  default     = "gp2"
 }
 
 # VPC id
