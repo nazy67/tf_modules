@@ -1,6 +1,6 @@
 # Application load balancer
 resource "aws_lb" "web_lb" {
-  name               = var.alb_name             
+  name               = var.lb_name             
   internal           = var.is_internal          
   load_balancer_type = var.load_balancer_type   
   security_groups    = var.security_groups       
@@ -57,8 +57,8 @@ resource "aws_security_group" "lb_sg" {
 
 resource "aws_security_group_rule" "lb_ingress" {
   type                     = var.rule_type
-  from_port                = var.http_ingress
-  to_port                  = var.http_ingress
+  from_port                = var.http_port
+  to_port                  = var.http_port
   protocol                 = var.protocol_type
   cidr_blocks              = var.cidr_blocks
   security_group_id        = aws_security_group.lb_sg.id
@@ -66,8 +66,8 @@ resource "aws_security_group_rule" "lb_ingress" {
 
 resource "aws_security_group_rule" "lt_ingress" {
   type                     = var.rule_type
-  from_port                = var.http_ingress
-  to_port                  = var.http_ingress
+  from_port                = var.http_port
+  to_port                  = var.http_port
   protocol                 = var.protocol_type
   source_security_group_id = var.launch_template_sg
   security_group_id        = aws_security_group.lb_sg.id
