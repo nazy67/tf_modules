@@ -1,68 +1,68 @@
 variable "main_bucket_id" {
   type = string
   description = "main bucket id"
-  default = ""
+  default = null
 }
 
 variable "ignore_public_acls" {
   type = bool
   description = "ignore public acls"
-  default = ""
+  default = null
 }
 
 variable "restrict_public_buckets" {
   type = bool
   description = "restrict public buckets"
-  default = ""
+  default = null
 }
 
 variable "block_public_acls" {
   type = bool
   description = "block public acls"
-  default = ""
+  default = null
 }
 
 variable "lock_public_policy" {
   type = bool
   description = "lock public policy"
-  default = ""
+  default = null
 }
 
 variable "bucket_name" {
   type = string
   description = "bucket name"
-  default = ""
+  default = null
 }
 
 variable "is_acl" {
   type = string
   description = "access control list"
-  default = ""
+  default = null
 }
 
 # Tag variables
 variable "env" {
   type = string
   description = "environment"
-  default = ""
+  default = null
 }
 
 variable "tag_name" {
   type = string
   description = "tag name"
-  default = ""
+  default = null
 }
 
 variable "managed_by" {
   type        = string
   description = "managed by tf"
-  default = ""
+  default = null
 }
 
 variable "owner" {
   type        = string
   description = "owner of the resources"
-  default = ""
+  default = null
 }
 
 variable "giturl" {
