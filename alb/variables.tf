@@ -23,15 +23,27 @@ variable "security_groups" {
   default = null
 }
 
-variable "alb_sg" {
+# Tag variables
+variable "env" {
   type = string
-  description = "app load balancer sg"
-  default = null
+  description = "environment"
+  default = ""
 }
 
+variable "managed_by" {
+  type        = string
+  description = "managed by tf"
+  default = ""
+}
 
-variable "target_group_arns" {
-  description = "A set of `aws_alb_target_group` ARNs, for use with Application or Network Load Balancing"
-  type        = list(string)
-  default     = []
+variable "owner" {
+  type        = string
+  description = "owner of the resources"
+  default = ""
+}
+
+variable "giturl" {
+  type        = string
+  description = "git url to the template"
+  default = ""
 }
