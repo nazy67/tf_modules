@@ -86,7 +86,7 @@ variable "user_data_base64" {
 
 variable "block_device_mappings" {
   description = "block device mapping"
-  type        = list(map(string))
+  type        = list(string)
   default     = []
 }
 
@@ -141,9 +141,9 @@ variable "lb_sg" {
 }
 
 variable "security_groups" {
-  type = string
+  type = list
   description = "asg security group"
-  default = null
+  default = []
 }
 
 # Tag variables
