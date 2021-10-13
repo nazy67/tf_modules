@@ -50,7 +50,7 @@ variable "desired_capacity" {
 # Launch template variables
 variable "name_prefix" {
   type        = string
-  description = "delete force"
+  description = "name prefix"
   default = ""
 }
 
