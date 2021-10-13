@@ -1,31 +1,25 @@
-variable "main_bucket_id" {
-  type = string
-  description = "main bucket id"
-  default = null
-}
-
 variable "ignore_public_acls" {
   type = bool
   description = "ignore public acls"
-  default = null
+  default = true
 }
 
 variable "restrict_public_buckets" {
   type = bool
   description = "restrict public buckets"
-  default = null
+  default = true
 }
 
 variable "block_public_acls" {
   type = bool
   description = "block public acls"
-  default = null
+  default = true
 }
 
 variable "block_public_policy" {
   type = bool
   description = "block public policy"
-  default = null
+  default = true
 }
 
 variable "bucket_name" {
