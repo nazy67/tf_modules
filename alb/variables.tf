@@ -114,23 +114,23 @@ variable "target_group_arn" {
 variable "env" {
   type = string
   description = "environment"
-  default = ""
+  default = null
 }
 
 variable "managed_by" {
   type        = string
   description = "managed by tf"
-  default = ""
+  default = null
 }
 
 variable "owner" {
   type        = string
   description = "owner of the resources"
-  default = ""
+  default = null
 }
 
 variable "giturl" {
   type        = string
   description = "git url to the template"
-  default = ""
+  default = null
 }
