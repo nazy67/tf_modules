@@ -101,7 +101,7 @@ variable "block_device_mappings" {
 variable "device_name" {
   type = string
   description = "device name"
-  default = ""
+  default = "/dev/sda1"
 }
 
 variable "delete_on_termination" {
