@@ -31,7 +31,7 @@ variable "bucket_name" {
 variable "is_acl" {
   type = string
   description = "access control list"
-  default = null
+  default = "private"
 }
 
 # Tag variables
@@ -56,5 +56,5 @@ variable "owner" {
 variable "giturl" {
   type        = string
   description = "git url to the template"
-  default = ""
+  default = null
 }
