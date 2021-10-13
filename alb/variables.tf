@@ -6,7 +6,7 @@ variable "lb_name" {
 }
 
 variable "public_subnets" {
-  type = list(string)
+  type = list
   description = "load balancer name"
   default = []
 }
