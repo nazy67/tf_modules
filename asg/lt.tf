@@ -11,8 +11,7 @@ resource "aws_launch_template" "web_template" {
     create_before_destroy = true
   }
 
-  block_device_mappings = [
-    {
+  block_device_mappings {
       device_name = "/dev/sda1"
       ebs = {
         delete_on_termination = true
@@ -21,7 +20,6 @@ resource "aws_launch_template" "web_template" {
         volume_type           = "gp3"
       }
     }
-  ]
 
   tags = merge(
     local.common_tags,

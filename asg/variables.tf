@@ -92,41 +92,41 @@ variable "user_data_base64" {
 }
 
 # EBS volume
-variable "block_device_mappings" {
-  description = "block device mapping"
-  type        = list(any)
-  default     = []
-}
+# variable "block_device_mappings" {
+#   description = "block device mapping"
+#   type        = list(any)
+#   default     = []
+# }
 
-variable "device_name" {
-  type        = string
-  description = "device name"
-  default     = "/dev/sda1"
-}
+# variable "device_name" {
+#   type        = string
+#   description = "device name"
+#   default     = "/dev/sda1"
+# }
 
-variable "delete_on_termination" {
-  type        = bool
-  description = "delete on termination"
-  default     = null
-}
+# variable "delete_on_termination" {
+#   type        = bool
+#   description = "delete on termination"
+#   default     = null
+# }
 
-variable "encrypted" {
-  type        = bool
-  description = "encrypted ebs"
-  default     = null
-}
+# variable "encrypted" {
+#   type        = bool
+#   description = "encrypted ebs"
+#   default     = null
+# }
 
-variable "volume_size" {
-  type        = number
-  description = "ebs volume size"
-  default     = null
-}
+# variable "volume_size" {
+#   type        = number
+#   description = "ebs volume size"
+#   default     = null
+# }
 
-variable "volume_type" {
-  type        = string
-  description = "ebs volume type"
-  default     = "gp2"
-}
+# variable "volume_type" {
+#   type        = string
+#   description = "ebs volume type"
+#   default     = "gp2"
+# }
 
 variable "launch_templ_id" {
   type        = string
