@@ -13,7 +13,7 @@ resource "aws_launch_template" "web_template" {
 
   block_device_mappings {
       device_name = "/dev/sda1"
-      ebs = {
+      ebs {
         delete_on_termination = true
         encrypted             = true
         volume_size           = 20
