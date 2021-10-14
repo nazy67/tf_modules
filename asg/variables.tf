@@ -99,7 +99,7 @@ variable "asg_sg_name" {
   default     = ""
 }
 
-variable "bastion_sg" {
+variable "ec2_sg" {
   type        = string
   description = "bastion host sg"
   default     = ""

@@ -48,7 +48,7 @@ resource "aws_security_group_rule" "bastion_ssh_ingress" {
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
-  source_security_group_id = var.bastion_sg
+  source_security_group_id = var.ec2_sg
   security_group_id        = aws_security_group.web_sg.id
 }
 
