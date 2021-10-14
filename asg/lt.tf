@@ -11,37 +11,14 @@ resource "aws_launch_template" "web_template" {
     create_before_destroy = true
   }
 
-  # EBS volume  
-  # block_device_mappings {
-  #   device_name = var.device_name
-  #   no_device   = var.no_device
-  #   ebs {
-  #     delete_on_termination = var.delete_on_termination
-  #     encrypted             = var.encrypted
-  #     volume_size           = var.volume_size
-  #     volume_type           = var.volume_type
-  #   }
-  # }
-
   block_device_mappings = [
     {
-      # Root volume
       device_name = "/dev/sda1"
-      no_device   = 0
       ebs = {
         delete_on_termination = true
         encrypted             = true
         volume_size           = 20
-        volume_type           = "gp2"
-      }
-      }, {
-      device_name = "/dev/xvda"
-      no_device   = 1
-      ebs = {
-        delete_on_termination = true
-        encrypted             = true
-        volume_size           = 25
-        volume_type           = "gp2"
+        volume_type           = "gp3"
       }
     }
   ]
