@@ -9,11 +9,11 @@ locals {
 
 locals {
   ingress_rules = {
-    1 = { from_port = 443,
-      to_port     = 443,
+    1 = { from_port = 80,
+      to_port     = 80,
       protocol    = "tcp",
       cidr_block  = "0.0.0.0/0",
-      description = "https_ingress",
+      description = "http_ingress",
       type = "ingress" }
   }
 }

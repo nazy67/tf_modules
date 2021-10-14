@@ -1,8 +1,8 @@
 # Application load balancer
 resource "aws_lb" "web_lb" {
   name               = var.lb_name
-  internal           = var.is_internal
-  load_balancer_type = var.load_balancer_type
+  internal           = false
+  load_balancer_type = "application"
   security_groups    = var.alb_security_group_ids
   subnets            = var.public_subnets
 
@@ -44,7 +44,7 @@ resource "aws_lb_listener" "http_listener" {
 # ALB security group
 resource "aws_security_group" "lb_sg" {
   name        = var.lb_sg_name
-  description = var.lb_sg_description
+  description = "allow traffic from/to application load balancer"
   vpc_id      = var.vpc_id
 
   tags = merge(
@@ -65,11 +65,11 @@ resource "aws_security_group_rule" "lb_ingress" {
   security_group_id = aws_security_group.lb_sg.id
 }
 
-resource "aws_security_group_rule" "lt_ingress" {
-  type                     = var.rule_type
-  from_port                = var.http_port
-  to_port                  = var.http_port
-  protocol                 = var.protocol_type
+resource "aws_security_group_rule" "web_ingress" {
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
   source_security_group_id = var.launch_template_sg
   security_group_id        = aws_security_group.lb_sg.id
 }

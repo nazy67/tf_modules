@@ -1,26 +1,21 @@
+# VPC id
+variable "vpc_id" {
+  type        = string
+  description = "vpc id"
+  default     = ""
+}
+
 # ALB variables
 variable "lb_name" {
   type        = string
-  description = "load balancer name"
+  description = "application load balancer name"
   default     = ""
 }
 
 variable "public_subnets" {
   type        = list(any)
-  description = "load balancer name"
+  description = "public subnets for alb"
   default     = []
-}
-
-variable "is_internal" {
-  type        = bool
-  description = "internal/internet facing"
-  default     = false
-}
-
-variable "load_balancer_type" {
-  type        = string
-  description = "load balancer type: application"
-  default     = "application"
 }
 
 # ALB security group 
@@ -35,35 +30,6 @@ variable "lb_sg_name" {
   description = "load balancer sg name"
   default     = ""
 }
-variable "rule_type" {
-  type        = string
-  description = "rule type"
-  default     = "ingress"
-}
-
-variable "ssh_port" {
-  type        = number
-  description = "ssh port"
-  default     = 22
-}
-
-variable "http_port" {
-  type        = number
-  description = "http port"
-  default     = 80
-}
-
-variable "cidr_blocks" {
-  type        = list(any)
-  description = "cidr blocks"
-  default     = ["0.0.0.0/0"]
-}
-
-variable "protocol_type" {
-  type        = string
-  description = "protocol type"
-  default     = "tcp"
-}
 
 variable "launch_template_sg" {
   type        = string
@@ -71,20 +37,7 @@ variable "launch_template_sg" {
   default     = ""
 }
 
-variable "lb_sg_description" {
-  type        = string
-  description = "load balancer sg description"
-  default     = "allow http traffic"
-}
-
-# VPC id
-variable "vpc_id" {
-  type        = string
-  description = "vpc id"
-  default     = ""
-}
-
-# HTTP/HTTPS listeners rule
+# HTTP listeners rule variables
 variable "app_lb_arn" {
   type        = string
   description = "application load balancer arn"
