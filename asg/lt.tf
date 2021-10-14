@@ -26,7 +26,7 @@ resource "aws_launch_template" "web_template" {
   block_device_mappings = [
     {
       # Root volume
-      device_name = "/dev/xvda"
+      device_name = "/dev/sda1"
       no_device   = 0
       ebs = {
         delete_on_termination = true
@@ -35,7 +35,7 @@ resource "aws_launch_template" "web_template" {
         volume_type           = "gp2"
       }
       }, {
-      device_name = "/dev/sda1"
+      device_name = "/dev/xvda"
       no_device   = 1
       ebs = {
         delete_on_termination = true
