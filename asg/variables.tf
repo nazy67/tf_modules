@@ -128,6 +128,12 @@ variable "volume_type" {
   default     = "gp2"
 }
 
+variable "launch_templ_id" {
+  type        = string
+  description = "launch template id"
+  default     = ""
+}
+
 # VPC id
 variable "vpc_id" {
   type        = string

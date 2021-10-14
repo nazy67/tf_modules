@@ -14,9 +14,14 @@ resource "aws_launch_template" "web_template" {
   # EBS volume  
   block_device_mappings {
     device_name = var.device_name
+    no_device   = var.no_device
     ebs {
       delete_on_termination = var.delete_on_termination
       encrypted             = var.encrypted
+      # snapshot_id           = var.snapshot_id
+      # kms_key_id            = var.kms_key_id
+      # iops                  = var.iops 
+      # throughput            = var.throughput
       volume_size           = var.volume_size
       volume_type           = var.volume_type
     }

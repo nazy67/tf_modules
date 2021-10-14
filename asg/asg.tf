@@ -10,7 +10,7 @@ resource "aws_autoscaling_group" "web_asg" {
   vpc_zone_identifier = var.vpc_zone_identifier
 
   launch_template {
-    id      = aws_launch_template.web_template.id
+    id      = var.launch_templ_id
     version = aws_launch_template.web_template.latest_version
   }
 
