@@ -1,8 +1,7 @@
 resource "aws_s3_bucket" "main" {
   bucket = var.bucket_name
-  acl    = var.is_acl
+  acl    = "private"
 
-  # Lifecycle rule
   lifecycle_rule {
     id      = "log"
     prefix  = "log/"

@@ -28,12 +28,6 @@ variable "bucket_name" {
   default     = ""
 }
 
-variable "is_acl" {
-  type        = string
-  description = "access control list"
-  default     = "private"
-}
-
 # Tag variables
 variable "env" {
   type        = string
