@@ -1,4 +1,4 @@
-# Providers variables
+# Providers variable
 variable "aws_region" {
   type        = string
   description = "The region Terraform deploys your infra"
@@ -8,32 +8,8 @@ variable "aws_region" {
 # VPC variables
 variable "vpc_cidr_block" {
   type        = string
-  description = "CIDR block for the VPC"
+  description = "cidr block for the vpc"
   default     = ""
-}
-
-variable "instance_tenancy" {
-  type        = string
-  description = "the tenancy of existing VPCs from dedicated to default instantly"
-  default     = "default"
-}
-
-variable "is_enabled_dns_support" {
-  type        = bool
-  description = "enabling dns support"
-  default     = true
-}
-
-variable "is_enabled_dns_hostnames" {
-  type        = bool
-  description = "enabling dns hostnames"
-  default     = true
-}
-
-variable "cidr_block" {
-  description = "ingress/egress cidr block"
-  type        = string
-  default     = "0.0.0.0/0"
 }
 
 # Subnet variables
@@ -49,27 +25,33 @@ variable "aws_az_1b" {
   default     = ""
 }
 
+variable "cidr_block" {
+  description = "ingress/egress cidr block"
+  type        = string
+  default     = "0.0.0.0/0"
+}
+
 variable "pub_cidr1_subnet" {
   type        = string
-  description = "CIDR block for the  1st public subnet"
+  description = "cidr block for the  1st public subnet"
   default     = ""
 }
 
 variable "pub_cidr2_subnet" {
   type        = string
-  description = "CIDR block for the 2nd public subnet"
+  description = "cidr block for the 2nd public subnet"
   default     = ""
 }
 
 variable "priv_cidr3_subnet" {
   type        = string
-  description = "CIDR block for the 1st private subnet"
+  description = "cidr block for the 3rd private subnet"
   default     = ""
 }
 
 variable "priv_cidr4_subnet" {
   type        = string
-  description = "CIDR block for the 2nd private subnet"
+  description = "cidr block for the 4th private subnet"
   default     = ""
 }
 
