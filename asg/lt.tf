@@ -44,19 +44,19 @@ resource "aws_security_group" "web_sg" {
 }
 
 resource "aws_security_group_rule" "bastion_ssh_ingress" {
-  type                     = var.rule_type
-  from_port                = var.ssh_port
-  to_port                  = var.ssh_port
-  protocol                 = var.protocol_type
+  type                     = "ingress"
+  from_port                = 22
+  to_port                  = 22
+  protocol                 = "tcp"
   source_security_group_id = var.bastion_sg
   security_group_id        = aws_security_group.web_sg.id
 }
 
 resource "aws_security_group_rule" "http_from_lb" {
-  type                     = var.rule_type
-  from_port                = var.http_port
-  to_port                  = var.http_port
-  protocol                 = var.protocol_type
+  type                     = "ingress"
+  from_port                = 80
+  to_port                  = 80
+  protocol                 = "tcp"
   source_security_group_id = var.lb_sg
   security_group_id        = aws_security_group.web_sg.id
 }

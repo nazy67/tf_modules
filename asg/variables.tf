@@ -1,4 +1,17 @@
+# VPC id variable
+variable "vpc_id" {
+  type        = string
+  description = "vpc id"
+  default     = ""
+}
+
 # ASG variables
+variable "asg_name" {
+  type        = string
+  description = "asg name"
+  default     = ""
+}
+
 variable "vpc_zone_identifier" {
   description = "list of subnet ids to launch resources in"
   type        = list(string)
@@ -11,22 +24,10 @@ variable "health_check_type" {
   default     = ""
 }
 
-variable "instance_type" {
-  type        = string
-  description = "this is instance type"
-  default     = ""
-}
-
 variable "target_group_arns" {
   description = "this is instance type"
   type        = list(string)
   default     = []
-}
-
-variable "asg_name" {
-  type        = string
-  description = "asg name"
-  default     = ""
 }
 
 variable "max_size" {
@@ -61,6 +62,12 @@ variable "name_prefix" {
   default     = ""
 }
 
+variable "instance_type" {
+  type        = string
+  description = "this is instance type"
+  default     = ""
+}
+
 variable "image_id" {
   type        = string
   description = "redhat image id"
@@ -73,72 +80,16 @@ variable "key_name" {
   default     = ""
 }
 
-variable "is_force_delete" {
-  type        = bool
-  description = "delete force"
-  default     = true
-}
-
-variable "availability_zone" {
-  description = "A list of one or more availability zones for the group"
-  type        = list(string)
-  default     = []
-}
-
 variable "user_data_base64" {
   description = "The Base64-encoded user data to provide when launching the instance"
   type        = string
   default     = null
 }
 
-# EBS volume
-# variable "block_device_mappings" {
-#   description = "block device mapping"
-#   type        = list(any)
-#   default     = []
-# }
-
-# variable "device_name" {
-#   type        = string
-#   description = "device name"
-#   default     = "/dev/sda1"
-# }
-
-# variable "delete_on_termination" {
-#   type        = bool
-#   description = "delete on termination"
-#   default     = null
-# }
-
-# variable "encrypted" {
-#   type        = bool
-#   description = "encrypted ebs"
-#   default     = null
-# }
-
-# variable "volume_size" {
-#   type        = number
-#   description = "ebs volume size"
-#   default     = null
-# }
-
-# variable "volume_type" {
-#   type        = string
-#   description = "ebs volume type"
-#   default     = "gp2"
-# }
-
-variable "launch_templ_id" {
-  type        = string
-  description = "launch template id"
-  default     = ""
-}
-
-# VPC id
-variable "vpc_id" {
-  type        = string
-  description = "vpc id"
-  default     = ""
+variable "asg_security_group_ids" {
+  type        = list(any)
+  description = "asg security group"
+  default     = []
 }
 
 # Web sg group
@@ -146,30 +97,6 @@ variable "asg_sg_name" {
   description = "asg name"
   type        = string
   default     = ""
-}
-
-variable "rule_type" {
-  type        = string
-  description = "rule type"
-  default     = "ingress"
-}
-
-variable "ssh_port" {
-  type        = number
-  description = "ssh port"
-  default     = 22
-}
-
-variable "http_port" {
-  type        = number
-  description = "ssh port"
-  default     = 80
-}
-
-variable "protocol_type" {
-  type        = string
-  description = "protocol type"
-  default     = "tcp"
 }
 
 variable "bastion_sg" {
@@ -182,12 +109,6 @@ variable "lb_sg" {
   type        = string
   description = "app load balancer sg"
   default     = ""
-}
-
-variable "asg_security_group_ids" {
-  type        = list(any)
-  description = "asg security group"
-  default     = []
 }
 
 # Tag variables
