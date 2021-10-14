@@ -11,7 +11,7 @@ resource "aws_autoscaling_group" "web_asg" {
 
   launch_template {
     id      = var.launch_templ_id
-    version = aws_launch_template.web_template.latest_version
+    version = var.latest_version
   }
 
   tag {
